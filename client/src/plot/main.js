@@ -120,7 +120,7 @@ export const Main=()=>{
                 </select>
 
                 <label>Y-Axis</label>
-                <select id="xAxis" value={yData} onChange={handleY}>
+                <select id="yAxis" value={yData} onChange={handleY}>
                     {DataValue.map((option,index)=>(
                         <option key={index} value={option}>{option}</option>
                     ))}
