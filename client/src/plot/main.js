@@ -66,7 +66,8 @@ export const Main=()=>{
 
  
     useEffect(()=>{
-        const updatedXArray = data.map((value, index) => {
+        if(Array.isArray(data)){
+            const updatedXArray = data.map((value, index) => {
             return value[xData];
           });
         const updatedYArray = data.map((value, index) => {
@@ -74,8 +75,8 @@ export const Main=()=>{
           });
     
           setXArray(updatedXArray);
-          setYArray(updatedYArray);
-
+          setYArray(updatedYArray);   
+        }
     },[data,xData,yData])
 
    
