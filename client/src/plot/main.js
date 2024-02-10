@@ -102,35 +102,67 @@ export const Main=()=>{
    
         <>
             {loading ? (
-                <p>Getting data...</p>
+                <div className="d-flex flex-column justify-content-center align-items-center" style={{width:"100vw", height:"100vh"}}>
+                     <div className="spinner-border spinner-border-lg text-succesfull" style={{width:"200px", height:"200px"}}></div>
+                     <span className="text-center">please wait while we load data</span>
+                </div>
+               
             ) : (
-                <>
-                <label>select graph</label>
-                <select id="selectOption" value={plotOption} onChange={handlePlot}>
+                <div className="container-fluid">
+                    <div className="justify-content-center">
+                    <div className="container-fluid d-flex mt-2 border border-2 justify-content-around align-items-center bg-secondary w-75 p-2">
+                        <div className="item1">
+                    <label>select graph :</label>
+                <select className="btn rounded-pill btn-sm border border-primary btn-dark mx-2" id="selectOption" value={plotOption} onChange={handlePlot}>
                     {option.map((option,index)=>(
                         <option key={index} value={option}>{option}</option>
                     ))}
                 </select>
-                <label>X-Axis</label>
-                <select id="xAxis" value={xData} onChange={handleX}>
+                </div>
+                <div className="item2">
+                <label>X-Axis :</label>
+                <select className="btn rounded-pill btn-sm borfer border-primary btn-dark mx-2" id="xAxis" value={xData} onChange={handleX}>
                     {DataValue.map((option,index)=>(
                         <option key={index} value={option}>{option}</option>
                     ))}
 
                 </select>
+                </div>
+                <div className="item3">
 
-                <label>Y-Axis</label>
-                <select id="yAxis" value={yData} onChange={handleY}>
+                <label>Y-Axis :</label>
+                <select className="btn rounded-pill btn-sm border border-primary btn-dark mx-2" id="yAxis" value={yData} onChange={handleY}>
                     {DataValue.map((option,index)=>(
                         <option key={index} value={option}>{option}</option>
                     ))}
-
                 </select>
-                
+                </div>
+                </div>
+                </div>
 
+                <div className="container-fluid d-flex justify-content-center">
+                <div className="d-flex justify-content-center border border-3 border-top-0 border-bottom-0 border-primary bg-secondary mt-3" style={{width:"80%"}}>
                 {componentMapping[plotOption]}
-                </>
+                </div>
+                </div>                
+                </div>
+      
+        
+
+               
+               
             )}
+
+            <hr></hr>
+
+
+            <footer className="conatiner-fluid mt-3 d-flex flex-column align-items-center">
+                <span>web.aix</span>
+              <span>2023-2024</span>
+
+            </footer>
+            
+           
         </>
         
     )
