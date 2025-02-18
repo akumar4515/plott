@@ -1,5 +1,6 @@
 import React from "react";
 import Plot from 'react-plotly.js';
+import '../../css/main.css';
 
 
 
@@ -100,7 +101,7 @@ export const Donut=({xArray,yArray})=>{
 
     return(
         <>
-        <Plot data={data} layout={layout}/>
+        <Plot className="plot" data={data} layout={layout}/>
         </>
     )
 };
