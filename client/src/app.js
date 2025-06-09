@@ -1,10 +1,18 @@
 import React from "react";
-import { Main } from "./plot/main.js";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Main } from "./plot/main";
+import { Plot } from "./plot/plot";
+import "./css/main.css";
 
-export const App=()=>{
-    return(
-   <div>
-   <Main/>
-   </div>
-    )
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/plot" element={<Plot />} />
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;
