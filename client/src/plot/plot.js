@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Bar, Donut, Line, Pie, Scatter } from "./graph/graph";
 import * as XLSX from "xlsx";
@@ -37,7 +37,25 @@ export const Plot = () => {
     }
   }, [data, xCol, yCol]);
 
-  const handleFileUpload = (event) => {
+  
+  const processData = useCallback((parsedData) => {
+    if (parsedData.length === 0) {
+      alert("Empty or invalid file");
+      setIsLoading(false);
+      return;
+    }
+
+    const cols = Object.keys(parsedData[0]);
+    setData(parsedData);
+    setColumns(cols);
+    setXCol(cols[0]);
+    setYCol(cols[1] || cols[0]);
+    setFileUploaded(true);
+    setIsLoading(false);
+  },[]);
+
+
+  const handleFileUpload = useCallback((event) => {
     const file = event.target.files[0];
     if (!file) return;
 
@@ -72,35 +90,7 @@ export const Plot = () => {
     } else {
       reader.readAsText(file);
     }
-  };
-
-  const processData = (parsedData) => {
-    if (parsedData.length === 0) {
-      alert("Empty or invalid file");
-      setIsLoading(false);
-      return;
-    }
-
-    const cols = Object.keys(parsedData[0]);
-    setData(parsedData);
-    setColumns(cols);
-    setXCol(cols[0]);
-    setYCol(cols[1] || cols[0]);
-    setFileUploaded(true);
-    setIsLoading(false);
-  };
-
-  const handleDownload = () => {
-    const canvas = chartContainerRef.current.querySelector("canvas");
-    if (canvas) {
-      const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/png");
-      link.download = `graphix-${plotOption}-chart.png`;
-      link.click();
-    } else {
-      alert("No chart available to download.");
-    }
-  };
+  },[processData]);
 
   return (
     <div className="main-container">

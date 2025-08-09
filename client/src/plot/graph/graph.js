@@ -4,7 +4,7 @@ import '../../css/main.css';
 
 
 
-export const Bar=({xArray,yArray})=>{
+export const Bar=React.memo(({xArray,yArray})=>{
 
     const data=[{
         x:xArray,
@@ -21,10 +21,10 @@ export const Bar=({xArray,yArray})=>{
         <Plot data={data} layout={layout}/>
         </>
     )
-};
+});
 
 
-export const Scatter=({xArray,yArray})=>{
+export const Scatter=React.memo(({xArray,yArray})=>{
 
 
     const data=[{
@@ -42,9 +42,9 @@ export const Scatter=({xArray,yArray})=>{
         <Plot data={data} layout={layout}/>
         </>
     )
-};
+});
 
-export const Pie=({xArray,yArray})=>{
+export const Pie=React.memo(({xArray,yArray})=>{
 
 
     const data=[{
@@ -62,9 +62,9 @@ export const Pie=({xArray,yArray})=>{
         <Plot data={data} layout={layout}/>
         </>
     )
-};
+});
 
-export const Line=({xArray,yArray})=>{
+export const Line=React.memo(({xArray,yArray})=>{
 
 
     const data=[{
@@ -82,10 +82,10 @@ export const Line=({xArray,yArray})=>{
         <Plot data={data} layout={layout}/>
         </>
     )
-};
+});
 
 
-export const Donut=({xArray,yArray})=>{
+export const Donut=React.memo(({xArray,yArray})=>{
 
 
     const data=[{
@@ -104,4 +104,4 @@ export const Donut=({xArray,yArray})=>{
         <Plot className="plot" data={data} layout={layout}/>
         </>
     )
-};
+});
