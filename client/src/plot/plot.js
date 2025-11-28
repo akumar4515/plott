@@ -293,6 +293,8 @@ export const Plot = () => {
 
         {fileUploaded && (
           <div className="plot-wrapper-full animate-slide-up">
+            {/* Toggle Button for Controls */}
+            
             {/* Controls Bar at Top */}
             <div className="controls-bar">
               <div className="controls-bar-content">
