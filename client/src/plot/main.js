@@ -13,8 +13,10 @@ export const Main = () => {
       <header className="header animate-slide-in">
         <div className="container header-content">
           <div className="header-logo-title">
+            <Link to="/" className="header-logo-title">
             <img src={logo} alt="Graphix Logo" className="header-logo" />
             <h1 className="header-title">Graphix</h1>
+            </Link>
           </div>
           <nav className="nav">
             <Link to="/plot" className="nav-link">Plot Data</Link>
@@ -69,7 +71,7 @@ export const Main = () => {
       <footer className="footer animate-fade-in">
         <div className="container">
           <span className="footer-text">Graphix</span>
-          <span className="footer-text">2023</span>
+          <span className="footer-text">2024</span>
         </div>
       </footer>
     </div>
